@@ -1,2 +1,2 @@
-# iOSGeofencing
-Simple geofencing application
+# iOSRemoteGeofencing
+
