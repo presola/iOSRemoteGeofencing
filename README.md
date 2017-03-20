@@ -18,7 +18,6 @@ See screenshots for more details.
 <img src="/images/notification.png?raw=true" height="400" alt="Locked Screen" style="margin-right: 30px">
 <img src="/images/home.png?raw=true" height="400" alt="Home" style="margin-right: 30px">
 <img src="/images/table.png?raw=true" height="400" alt="Table View Controller">
-<img src="/images/notificationtable.png?raw=true" height="400" alt="Notification View Controller">
 </div>
 <div>
 <img src="/images/pointer.png?raw=true" height="400" alt="Custom Pointer" style="margin-right: 30px">
