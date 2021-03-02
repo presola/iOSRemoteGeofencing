@@ -348,7 +348,7 @@ public extension UIView {
             activityView.layer.shadowOffset = style.shadowOffset
         }
         
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicatorView.center = CGPoint(x: activityView.bounds.size.width / 2.0, y: activityView.bounds.size.height / 2.0)
         activityView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
@@ -377,7 +377,7 @@ public extension UIView {
             toast.alpha = 1.0
         }) { (finished) -> Void in
             let timer = Timer(timeInterval: duration, target: self, selector: #selector(UIView.toastTimerDidFinish(_:)), userInfo: toast, repeats: false)
-            RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+            RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
             objc_setAssociatedObject(toast, &ToastKeys.Timer, timer, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
@@ -408,14 +408,14 @@ public extension UIView {
     
     // MARK: - Events
     
-    func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
+    @objc func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
         if let toast = recognizer.view, let timer = objc_getAssociatedObject(toast, &ToastKeys.Timer) as? Timer {
             timer.invalidate()
             self.hideToast(toast, fromTap: true)
         }
     }
     
-    func toastTimerDidFinish(_ timer: Timer) {
+    @objc func toastTimerDidFinish(_ timer: Timer) {
         if let toast = timer.userInfo as? UIView {
             self.hideToast(toast)
         }

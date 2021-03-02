@@ -39,7 +39,7 @@ class UnreadTableViewController: UITableViewController {
         if let rect = self.navigationController?.navigationBar.frame {
             let y = rect.size.height + rect.origin.y
             let bottom = self.tabBarController!.tabBar.frame.height
-            let inset = UIEdgeInsetsMake( y, 0, bottom, 0)
+            let inset = UIEdgeInsets.init( top: y, left: 0, bottom: bottom, right: 0)
             if self.tableView.contentInset != inset{
                 self.tableView.contentInset = inset
             }
@@ -95,7 +95,7 @@ class UnreadTableViewController: UITableViewController {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
     }
     

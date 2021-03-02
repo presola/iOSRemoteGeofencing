@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var geoNotifications: [GeoNotification] = []
     let notificationData = NotificationData()
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -102,7 +102,7 @@ extension AppDelegate{
         
         let content = UNMutableNotificationContent()
         content.body = message
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         let attachment = try! UNNotificationAttachment(identifier: "image", url: Bundle.main.url(forResource: imageName, withExtension: "png")!, options: nil)
         content.attachments = [attachment]
         
@@ -172,7 +172,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         print("Notification being triggered")
         loadData()
         UIApplication.shared.applicationIconBadgeNumber = geoNotifications.count
-        if UIApplication.shared.applicationState == UIApplicationState.active {
+        if UIApplication.shared.applicationState == UIApplication.State.active {
             let selectedView = UIApplication.topViewController()?.tabBarController
             let currentBadge:Int = Int((selectedView?.tabBar.items![2].badgeValue)!)!
             let updatedBadge = currentBadge + 1

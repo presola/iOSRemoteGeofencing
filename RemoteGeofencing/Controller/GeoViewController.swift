@@ -127,7 +127,7 @@ extension GeoViewController{
     }
     
     func addRadiusOverlay(forGeoData geoData: GeoData) {
-        mapView?.add(MKCircle(center: geoData.coordinate, radius: geoData.radius))
+        mapView?.addOverlay(MKCircle(center: geoData.coordinate, radius: geoData.radius))
     }
     
     func remove(geoData: GeoData){
@@ -146,7 +146,7 @@ extension GeoViewController{
             guard let circleOverlay = overlay as? MKCircle else { continue }
             let coord = circleOverlay.coordinate
             if coord.latitude == geoData.coordinate.latitude && coord.longitude == geoData.coordinate.longitude && circleOverlay.radius == geoData.radius {
-                mapView?.remove(circleOverlay)
+                mapView?.removeOverlay(circleOverlay)
                 break
             }
         }

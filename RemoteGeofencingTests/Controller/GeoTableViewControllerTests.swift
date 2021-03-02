@@ -17,7 +17,7 @@ class GeoTableViewControllerTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        viewController = storyboard.instantiateViewController(withIdentifier: "GeoTableViewController") as! GeoTableViewController
+        viewController = (storyboard.instantiateViewController(withIdentifier: "GeoTableViewController") as! GeoTableViewController)
         
         _ = viewController.view
     }

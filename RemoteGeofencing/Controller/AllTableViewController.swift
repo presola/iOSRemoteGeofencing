@@ -38,7 +38,7 @@ class AllTableViewController: UITableViewController {
         if let rect = self.navigationController?.navigationBar.frame {
             let top = rect.size.height + rect.origin.y
             let bottom = self.tabBarController!.tabBar.frame.height
-            let inset = UIEdgeInsetsMake( top, 0, bottom, 0)
+            let inset = UIEdgeInsets.init( top: top, left: 0, bottom: bottom, right: 0)
             if self.tableView.contentInset != inset{
                 self.tableView.contentInset = inset
             }
@@ -93,7 +93,7 @@ class AllTableViewController: UITableViewController {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
     }
     

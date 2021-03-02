@@ -55,7 +55,7 @@ class AddGeoViewController: UITableViewController {
     }
     
     @IBAction func addNoteChanged(_ sender: UITextField) {
-        saveButton.isEnabled = !radiusTextField.text!.isEmpty && (noteTextField.text?.characters.count)! > 3
+        saveButton.isEnabled = !radiusTextField.text!.isEmpty && (noteTextField.text?.count)! > 3
     }
     
     
@@ -137,8 +137,8 @@ extension AddGeoViewController: HandleMapSearch {
             annotation.subtitle = "\(city) \(state)"
         }
         
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegionMake(placemark.coordinate, span)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion.init(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
         mapView.addAnnotation(annotation)
     }

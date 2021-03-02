@@ -43,7 +43,7 @@ class NotificationsPageViewController: UIPageViewController{
     
     
     func setView(index: Int){
-        setViewControllers([pages[index]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        setViewControllers([pages[index]], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
         segmentedControl.selectedSegmentIndex = index
     }
     
