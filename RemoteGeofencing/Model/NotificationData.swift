@@ -37,7 +37,7 @@ class NotificationData{
     
     
     func updateGeoNotification(geoNotification: GeoNotification, status: String){
-        let indexInArray = geoNotifications.index(of: geoNotification)
+        let indexInArray = geoNotifications.firstIndex(of: geoNotification)
         let geo = geoNotifications[indexInArray!]
         geo.status = status
         geoNotifications[indexInArray!] = geo

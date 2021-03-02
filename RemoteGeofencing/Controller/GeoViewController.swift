@@ -69,13 +69,16 @@ extension GeoViewController{
     
     func startMonitoring(geoData: GeoData) {
         if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
-            self.view.makeToast("Geofencing is not supported on this device!, click image to active", duration: 2.0, position: CGPoint(x: 110.0, y: 110.0), title: "Unsupported", image: UIImage(named: "placeholder"), style:nil) { (didTap: Bool) -> Void in
-                if didTap {
-                    self.locationManager.requestAlwaysAuthorization()
-                } else {
-                    self.view.makeToast("Permission not granted")
+            if self.view != nil {
+                self.view.makeToast("Geofencing is not supported on this device!, click image to activate", duration: 2.0, point: CGPoint(x: 110.0, y: 110.0), title: "Unsupported", image: UIImage(named: "placeholder")) { didTap in
+                    if didTap {
+                        self.locationManager.requestAlwaysAuthorization()
+                    } else {
+                        self.view.makeToast("Permission not granted")
+                    }
                 }
             }
+            
             return
         }
         // 2
@@ -131,7 +134,7 @@ extension GeoViewController{
     }
     
     func remove(geoData: GeoData){
-        if let indexInArray = geoDataSet.index(of: geoData) {
+        if let indexInArray = geoDataSet.firstIndex(of: geoData) {
             geoDataSet.remove(at: indexInArray)
         }
         mapView.removeAnnotation(geoData)

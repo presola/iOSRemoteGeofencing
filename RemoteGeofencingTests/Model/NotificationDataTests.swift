@@ -50,7 +50,7 @@ class NotificationDataTests: XCTestCase {
     func test_updateNotification(){
         let data = notificationData.setData()
         dataSet.append(data)
-        let indexInArray = dataSet.index(of: data)
+        let indexInArray = dataSet.firstIndex(of: data)
         notificationData.addNotification(geoNotification: data)
         let status = "read"
         notificationData.updateGeoNotification(geoNotification: data, status: status)
@@ -118,7 +118,7 @@ extension NotificationDataTests{
         }
         
         func updateGeoNotification(geoNotification: GeoNotification, status: String){
-            let indexInArray = geoNotifications.index(of: geoNotification)
+            let indexInArray = geoNotifications.firstIndex(of: geoNotification)
             let geo = geoNotifications[indexInArray!]
             geo.status = status
             geoNotifications[indexInArray!] = geo

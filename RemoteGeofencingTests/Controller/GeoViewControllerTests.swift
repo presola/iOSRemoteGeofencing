@@ -144,7 +144,7 @@ extension GeoViewControllerTests{
         }
         
         func remove(geoData: GeoData){
-            if let indexInArray = geoDataSet.index(of: geoData) {
+            if let indexInArray = geoDataSet.firstIndex(of: geoData) {
                 geoDataSet.remove(at: indexInArray)
                 mapView.annotations.remove(at: indexInArray)
             }

@@ -107,7 +107,7 @@ class ReadTableViewController: UITableViewController {
             let alertController = UIAlertController(title: "More actions", message: "Choose one or more extra options", preferredStyle: .actionSheet)
             let indexInArray = index.row
             let geoInfo = self.readGeoNotifications[indexInArray]
-            let geoIndex = self.notificationData.geoNotifications.index(of: geoInfo)
+            let geoIndex = self.notificationData.geoNotifications.firstIndex(of: geoInfo)
             let dataGeo = self.notificationData.geoNotifications[geoIndex!]
             let dataGeoStatus = dataGeo.status
             var changeInStatus: String? {
@@ -142,7 +142,7 @@ class ReadTableViewController: UITableViewController {
                 
                 let yesAction = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction!) in
                     for geoIndex in self.readGeoNotifications{
-                        if let indexInArray = self.notificationData.geoNotifications.index(of: geoIndex) {
+                        if let indexInArray = self.notificationData.geoNotifications.firstIndex(of: geoIndex) {
                             self.notificationData.removeNotification(indexInArray: indexInArray)
                         }
                     }
@@ -174,7 +174,7 @@ class ReadTableViewController: UITableViewController {
         more.backgroundColor = UIColor.darkGray
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             let geoInfo = self.readGeoNotifications[index.row]
-            if let indexInArray = self.notificationData.geoNotifications.index(of: geoInfo) {
+            if let indexInArray = self.notificationData.geoNotifications.firstIndex(of: geoInfo) {
                 self.notificationData.removeNotification(indexInArray: indexInArray)
             }
             self.notificationData.saveAllGeoNotifications()

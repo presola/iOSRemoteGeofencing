@@ -2,6 +2,7 @@
 # platform :ios, '9.0'
 
 target 'RemoteGeofencing' do
+    project 'RemoteGeofencing.xcodeproj'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
     pod 'Toast-Swift', '~> 5.0.1'

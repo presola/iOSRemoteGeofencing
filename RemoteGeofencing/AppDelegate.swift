@@ -52,21 +52,21 @@ extension AppDelegate{
     func geoData(fromRegionIdentifier identifier: String) -> GeoData? {
         let savedItems = UserDefaults.standard.array(forKey: UserDefaultKeys.savedData) as? [NSData]
         let geoData = savedItems?.map { NSKeyedUnarchiver.unarchiveObject(with: $0 as Data) as? GeoData }
-        let index = geoData?.index { $0?.identifier == identifier }
+        let index = geoData?.firstIndex { $0?.identifier == identifier }
         return index != nil ? geoData?[index!] : nil
     }
     
     func note(fromRegionIdentifier identifier: String) -> String? {
         let savedItems = UserDefaults.standard.array(forKey: UserDefaultKeys.savedData) as? [NSData]
         let geoData = savedItems?.map { NSKeyedUnarchiver.unarchiveObject(with: $0 as Data) as? GeoData }
-        let index = geoData?.index { $0?.identifier == identifier }
+        let index = geoData?.firstIndex { $0?.identifier == identifier }
         return index != nil ? geoData?[index!]?.note : nil
     }
     
     func location(fromRegionIdentifier identifier: String) -> String? {
         let savedItems = UserDefaults.standard.array(forKey: UserDefaultKeys.savedData) as? [NSData]
         let geoData = savedItems?.map { NSKeyedUnarchiver.unarchiveObject(with: $0 as Data) as? GeoData }
-        let index = geoData?.index { $0?.identifier == identifier }
+        let index = geoData?.firstIndex { $0?.identifier == identifier }
         let locationType = index != nil ? geoData?[index!]?.location : nil
         var imageName: String? {
             var imageValue: String
