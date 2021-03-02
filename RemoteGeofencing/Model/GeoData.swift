@@ -2,8 +2,8 @@
 //  GeoData.swift
 //  Geofencing
 //
-//  Created by Abisola Adeniran on 2016-11-30.
-//  Copyright © 2016 Abisola Adeniran. All rights reserved.
+//  Created by Abisola A & Presly E on 2016-11-30.
+//  Copyright © 2016 Abisola A & Presly E. All rights reserved.
 //
 
 import UIKit

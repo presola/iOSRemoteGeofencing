@@ -316,7 +316,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = "Abisola Adeniran";
+				ORGANIZATIONNAME = "Abisola A & Presly E";
 				TargetAttributes = {
 					1E49A4721DEF08A100F75CA6 = {
 						CreatedOnToolsVersion = 8.1;
